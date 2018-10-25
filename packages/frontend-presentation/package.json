@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "deploy": "npx @s-ui/deploy spa the-next-javascript-presentation ./dist --now",
+    "deploy": "npx @s-ui/deploy spa the-next-javascript-presentation ./dist --now --public",
     "build": "mdx-deck build deck.mdx && cp -r ./assets ./dist/assets",
     "test": "true"
   },
