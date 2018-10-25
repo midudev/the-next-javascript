@@ -8,6 +8,7 @@ export default {
   // custom colors
   colors: {
     background: '#f5da55',
+    link: '#0000EE',
     text: '#24292e'
   },
   heading: {
