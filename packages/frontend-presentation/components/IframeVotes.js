@@ -10,5 +10,5 @@ const Iframe = styled.iframe`
   width: 100%;
 `
 export const IframeVotes = ({proposal}) => (
-  <Iframe src={`http://localhost:3000/iframe/${proposal}`} />
+  <Iframe src={`https://vote-js.now.sh/iframe/${proposal}`} />
 )
