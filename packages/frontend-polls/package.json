@@ -14,8 +14,8 @@
     "@schibstedspain/sui-atom-badge": "1",
     "@schibstedspain/sui-atom-button": "1",
     "firebase": "5.5.5",
-    "react": "16",
-    "react-dom": "16",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0",
     "react-router-dom": "4.3.1"
   }
 }
