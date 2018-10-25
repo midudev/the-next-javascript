@@ -12,7 +12,7 @@ cache:
     - node_modules
 
 install:
-  - npm install -g @s-ui/deploy
+  - echo "nothing to install from root"
 
 env:
   - PROJECT=frontend-polls
