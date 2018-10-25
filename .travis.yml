@@ -1,0 +1,23 @@
+dist: trusty
+
+language: node_js
+
+node_js:
+  - "10"
+
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+  - npm update
+  - npm install -g @s-ui/deploy
+
+env:
+  - PROJECT=frontend-polls
+  - PROJECT=frontend-presentation
+
+script: cd $PROJECT && npm install && npm run build && npm run deploy
