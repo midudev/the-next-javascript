@@ -47,10 +47,16 @@ And much more...
 # so... what's next? 🤔🐲
 
 ---
-# EcmaScript 2018
-<img src='./assets/got_dragon.gif' width='500' /><br/>
+# EcmaScript 2018:
+<img src='./assets/got_dragon.gif' width='450' /><br/>
 
-### Oh, yes. 😎🔥
+### 😎🔥 rest/spread properties
+### 🙏 Promise.prototype.finally
+### 😅 and some RegExp stuff
+
+---
+# Prepare for the future
+<img src='./assets/rick_future.gif' width='400' /><br />
 
 ---
 #### But before continuing... 🙋‍♂️
@@ -101,21 +107,6 @@ It will be included to the next yearly standard ratification.
 ## http://TODO
 
 ---
-<ProposalTitle title='global' stage={3} />
-
-```javascript
-// If we're in a browser, the global namespace is named 'window'. If we're
-// in node, it's named 'global'. If we're in a shell, 'this' might work.
-const globalThis = (typeof window !== "undefined"
-  ? window
-  : (typeof process === 'object' &&
-      typeof require === 'function' &&
-      typeof global === 'object')
-    ? global
-    : this);
-```
-<IframeVotes proposal='global' />
----
 <ProposalTitle title='array-last' stage={1} />
 
 ```javascript
@@ -138,12 +129,29 @@ myArray.lastItem // return the last item of the array
 var street = user.address && user.address.street;
 var fooInput = myForm.querySelector('input[name=foo]')
 var fooValue = fooInput ? fooInput.value : undefined
+
 // using optional chainig
 var street = user.address?.street
 var fooValue = myForm.querySelector('input[name=foo]')?.value
 
 ```
 <IframeVotes proposal='optional-chaining' />
+
+---
+<ProposalTitle title='global' stage={3} />
+
+```javascript
+// If we're in a browser, the global namespace is named 'window'. If we're
+// in node, it's named 'global'. If we're in a shell, 'this' might work.
+const globalThis = (typeof window !== "undefined"
+  ? window
+  : (typeof process === 'object' &&
+      typeof require === 'function' &&
+      typeof global === 'object')
+    ? global
+    : this);
+```
+<IframeVotes proposal='global' />
 
 ---
 <ProposalTitle title='pipeline-operator' stage={1} />
@@ -155,8 +163,7 @@ const exclaim = str => str + '!'
 // old way
 let result = exclaim(capitalize(doubleSay("hello")));
 
-// using the new proposal
-let result = "hello"
+let result = "hello" // using the new proposal
   |> doubleSay
   |> capitalize
   |> exclaim
@@ -164,3 +171,96 @@ let result = "hello"
 console.log(result) // "Hello, hello!"
 ```
 <IframeVotes proposal='pipeline-operator' />
+
+---
+<ProposalTitle title='class-fields' stage={3} />
+
+```javascript
+class MyClass {
+  #number // # symbol indicates it's private
+  increment = 2 // public property field for MyClass
+
+  constructor(number) {
+      this.#number = number; // this._number = number
+  }
+
+  incNumber() {
+      this.#number = this.#number + this.increment;
+      // this._number = this._number++ + this.increment;
+  }
+}
+```
+<IframeVotes proposal='numeric-separators' />
+
+---
+<ProposalTitle title='numeric-separators' stage={2} />
+
+```javascript
+const FRONTEND_SALARY = 12300;
+// is this 12,300€? Or 123, because it's in cents?
+
+const TIMES_JAVASCRIPT_DIED = 1543345345;
+// Is this a billion? a hundred millions? Fifteen millions?
+
+// Using underscores _ as separators
+// helps improve readability for numeric literals
+const FRONTEND_SALARY = 12_300 // ah! not bad! 💰
+const TIMES_JAVASCRIPT_DIED = 1_543_345_345 // and yet still is alive! 🤔
+```
+<IframeVotes proposal='numeric-separators' />
+
+---
+<ProposalTitle title='simple-arrow-function' />
+
+```javascript
+const square = function (x) {
+  return x * x
+}
+
+const cube = function(x) {
+  return square(x) * x
+}
+
+// simple arrow function would not bind this
+square = x -> x * x
+cube   = x -> square(x) * x
+```
+<IframeVotes proposal='simple-arrow-function' />
+
+---
+<ProposalTitle title='chained-comparisons' />
+
+```javascript
+const beatsPerMinute = 150
+const patientIsOk = (40 < beatsPerMinute && beatsPerMinute < 220)
+
+// using chained comparison!
+const patientIsOk = 40 < beatsPerMinute < 220
+```
+<IframeVotes proposal='chained-comparisons' />
+
+---
+
+---
+<ProposalTitle title='immutable-type' />
+
+```javascript
+immutable person = {
+  name: 'Miguel',
+  age: 18,
+  isCool: true,
+  isModest: 'the one that most'
+}
+
+person.name = 'Pepito'
+// throws TypeError('cannot assign `name` from Object')
+```
+<IframeVotes proposal='immutable-type' />
+
+---
+# Thanks for voting! 🗳
+
+---
+# One more thing...
+
+---
