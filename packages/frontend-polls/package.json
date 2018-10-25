@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production sui-bundler build -C",
-    "deploy": "sui-deploy spa vote-js",
+    "deploy": "npx @s-ui/deploy spa vote-js --now",
     "start": "sui-bundler dev",
     "test": "true"
   },
