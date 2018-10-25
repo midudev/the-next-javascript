@@ -6,7 +6,7 @@ const avg = a => a.reduce((a, b) => a + b, 0) / a.length
 const round = num =>
   parseFloat((Math.round((num * 1000) / 10) / 100).toFixed(2))
 export const Score = React.memo(({votes}) => {
-  const score = avg(votes)
+  const score = votes.length ? avg(votes) : 0
 
   const emojiScore = EMOJI_SCORES.reduce((prevValue, current, currentIndex) => {
     return +current > score ? prevValue : current
