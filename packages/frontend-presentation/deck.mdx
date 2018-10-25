@@ -1,0 +1,166 @@
+export { default as theme } from './theme'
+import { Appear } from 'mdx-deck'
+import {IframeVotes} from './components/IframeVotes'
+import {ProposalTitle} from './components/ProposalTitle'
+
+# The next Javascript 🚀
+
+import {Author} from './components/Author.js'
+
+<Author />
+---
+### Javascript is evolving
+<img src='./assets/charmander.gif' width='400' />
+
+---
+**ES6**, I choose you!<br />
+![](./assets/charmander_0.gif)
+
+---
+import {FeaturesES2015} from './components/FeaturesES2015.js'
+
+<FeaturesES2015 />
+
+And much more...
+---
+![](./assets/charmander_0.gif)
+## ~~ES6~~ EcmaScript 2015
+### 🤩 * Tons of additions!*
+<br />
+---
+<img src='./assets/charmeleon.gif' width='200' /><br/>
+
+## EcmaScript 2016
+### 😅 Array#includes and exponential operator
+<br />
+
+---
+<img src='./assets/charizard.gif' width='300' /><br/>
+
+# EcmaScript 2017
+### 😱 async/await
+### 😬 Object.values/Object.entries
+### 🎸 Trailing commas in function parameter list and calls
+### and more! 🙌
+
+---
+# so... what's next? 🤔🐲
+
+---
+# EcmaScript 2018
+<img src='./assets/got_dragon.gif' width='500' /><br/>
+
+### Oh, yes. 😎🔥
+
+---
+#### But before continuing... 🙋‍♂️
+# TC39 Process & Stages
+###### More info: https://tc39.github.io/process-document/
+---
+# Who is TC39?
+The committe responsible for evolving Javascript.<br />
+Its members are companies (major browser vendors) and others.
+Operates by consensus.
+---
+# I have a picture of them! 📸
+---
+# TC39 in action!
+<img src='https://media.giphy.com/media/t6f2bNAjx7Bio/giphy.gif' width='500' /><br />
+---
+# Real TC39 in real action!
+<img src='https://scontent-lax3-2.cdninstagram.com/vp/3bb8ca049902b9bb510edd5984e76dee/5C023D11/t51.2885-15/e35/c135.0.809.809/s480x480/33375359_179302462730979_8011252121833832448_n.jpg' width='500' />
+---
+# But, how the TC39 works?
+Meetings every two months 📆<br />
+Proposals go through a process based on stages 🚵‍♂️
+
+---
+# 💡 Stage 0: Strawman
+Just an idea, not a formal proposal. You could even write one!<br />
+Very highly likely it will change or be dropped.
+---
+# 🤔 Stage 1: Proposal
+TC39 is willing to examine, discuss and contribute to the proposal. <br />
+WIP, much could change or even dropped.
+---
+# 📝 Stage 2: Draft
+Firt version of what will be in the specification.<br />
+Changes could occur.
+---
+# 👩🏽‍💼 Stage 3: Candidate
+Spec is completed but needs feedback from browser implementations and users.<br />
+Changes are unlikely but could happen.
+---
+# 🤩 Stage 4: Finished
+It will be included to the next yearly standard ratification.
+---
+# Lots of proposals on different stages
+#### https://github.com/tc39/proposals
+---
+# Vote your proposals! 🗳
+## http://TODO
+
+---
+<ProposalTitle title='global' stage={3} />
+
+```javascript
+// If we're in a browser, the global namespace is named 'window'. If we're
+// in node, it's named 'global'. If we're in a shell, 'this' might work.
+const globalThis = (typeof window !== "undefined"
+  ? window
+  : (typeof process === 'object' &&
+      typeof require === 'function' &&
+      typeof global === 'object')
+    ? global
+    : this);
+```
+<IframeVotes proposal='global' />
+---
+<ProposalTitle title='array-last' stage={1} />
+
+```javascript
+myArray[myArray.length - 1] // return the last item of the array
+// but it has some problems...
+const thoughLastIndex = myArray.length - 1
+myArray[myArray.length] // manual error
+myArray[thoughLastIndex - 1] // manual error
+
+// using the new proposal
+myArray.lastItem // return the last item of the array
+
+```
+<IframeVotes proposal='array-last' />
+
+---
+<ProposalTitle title='optional-chaining' stage={1} />
+
+```javascript
+var street = user.address && user.address.street;
+var fooInput = myForm.querySelector('input[name=foo]')
+var fooValue = fooInput ? fooInput.value : undefined
+// using optional chainig
+var street = user.address?.street
+var fooValue = myForm.querySelector('input[name=foo]')?.value
+
+```
+<IframeVotes proposal='optional-chaining' />
+
+---
+<ProposalTitle title='pipeline-operator' stage={1} />
+
+```javascript
+const doubleSay = str => str + ", " + str
+const capitalize = str => str[0].toUpperCase() + str.substring(1)
+const exclaim = str => str + '!'
+// old way
+let result = exclaim(capitalize(doubleSay("hello")));
+
+// using the new proposal
+let result = "hello"
+  |> doubleSay
+  |> capitalize
+  |> exclaim
+
+console.log(result) // "Hello, hello!"
+```
+<IframeVotes proposal='pipeline-operator' />
