@@ -47,7 +47,7 @@ And much more...
 # so... what's next? 🤔🐲
 
 ---
-# EcmaScript 2018:
+# EcmaScript 2018
 <img src='./assets/got_dragon.gif' width='450' /><br/>
 
 ### 😎🔥 rest/spread properties
@@ -90,7 +90,7 @@ TC39 is willing to examine, discuss and contribute to the proposal. <br />
 WIP, much could change or even dropped. 🙅‍♂️
 ---
 # 📝 Stage 2: Draft
-Firt version of what will be in the specification.<br />
+First version of what will be in the specification.<br />
 Changes could occur.
 ---
 # 👩🏽‍💼 Stage 3: Candidate
@@ -270,17 +270,58 @@ person.name = 'Pepito'
 ---
 
 # The next React ⚛ 🚀 ️
-
----
-Polling web using React Hooks
-0 Component classes
-but with state and life cycle with useState and useEffect
 ---
 
----
-### Source code available. NOW:
-### https://github.com/miduga/the-next-javascript
+<img src='./assets/react-hooks.jpg' style={{ width: '80%', margin: '0 auto;'}} />
 
 ---
-### Questions?
+### Voting website app using **React Hooks**
+### *0* Component classes used!
+#### but with state and life cycle with *useState* and *useEffect*
+---
 
+import { FullScreenCode } from 'mdx-deck/layouts'
+
+export default FullScreenCode
+
+```jsx
+/* eslint-disable react/prop-types */
+import React, {useEffect, useState} from 'react'
+import {Score} from '../components/Score'
+
+import {onGetVotesByProposal} from '../firebase'
+
+export const Iframe = ({match}) => {
+  const [votes, setVotes] = useState([])
+  const [isReady, setIsReady] = useState(false)
+  const {params} = match
+  const {proposal} = params
+
+  useEffect(
+    () => {
+      onGetVotesByProposal({proposal}, votes => {
+        setVotes(votes)
+        setIsReady(true)
+      })
+    },
+    [proposal]
+  )
+
+  return (
+    <div className="js-IframePage">
+      {!isReady && (
+        <h2 className="js-IframePage-loading">Loading scores... 🐭</h2>
+      )}
+      {isReady && <Score votes={votes} />}
+    </div>
+  )
+}
+```
+
+---
+### Source code available RIGHT NOW 👇:
+https://github.com/miduga/the-next-javascript
+
+---
+# Thanks! 🙇‍♂️
+### any questions? 🤔
