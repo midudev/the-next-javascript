@@ -9,14 +9,14 @@ const Wrapper = styled.section`
 `
 
 const Avatar = styled.img`
-  height: 80px;
+  height: 100px;
   margin-right: 16px;
-  width: 80;
+  width: 100;
 `
 
 const Text = styled.p`
   margin: 4px;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   text-align: left;
 `
