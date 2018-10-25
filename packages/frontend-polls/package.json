@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "NODE_ENV=production sui-bundler build -C",
+    "deploy": "sui-deploy spa vote-js",
     "start": "sui-bundler dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "true"
   },
   "devDependencies": {
     "@s-ui/bundler": "3"
   },
   "dependencies": {
     "@s-ui/react-atom-spinner": "1",
-    "@schibstedspain/sui-atom-badge": "1",
-    "@schibstedspain/sui-atom-button": "1",
     "firebase": "5.5.5",
     "react": "16.7.0-alpha.0",
     "react-dom": "16.7.0-alpha.0",
