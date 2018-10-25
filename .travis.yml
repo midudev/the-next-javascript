@@ -20,4 +20,4 @@ env:
   - PROJECT=frontend-polls
   - PROJECT=frontend-presentation
 
-script: cd $PROJECT && npm install && npm run build && npm run deploy
+script: cd packages/$PROJECT && npm install && npm run build && npm run deploy
