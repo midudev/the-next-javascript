@@ -1,40 +1,24 @@
 /* eslint-disable react/prop-types */
 
-import React, {Component} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import {PROPOSALS} from '../constants'
 import {Proposal} from './Proposal'
-import {db} from '../firebase'
+import {onGetVotesByUser} from '../firebase'
 
-export class Proposals extends Component {
-  state = {votes: {}}
+export function Proposals({user}) {
+  const [votes, setVotes] = useState({})
 
-  componentDidMount() {
-    db.collection('votes')
-      .where('user', '==', this.props.user)
-      .onSnapshot(querySnapshot => {
-        let votes = {}
-        if (querySnapshot.docs.length > 0) {
-          querySnapshot.forEach(function(doc) {
-            const {proposal, vote} = doc.data()
-            votes[proposal] = vote
-          })
-        }
-        this.setState({votes})
-      })
-  }
+  useEffect(() => {
+    onGetVotesByUser({user}, setVotes)
+  }, [])
 
-  render() {
-    const {user} = this.props
-    const {votes} = this.state
-
-    return PROPOSALS.map(proposal => (
-      <Proposal
-        key={proposal}
-        proposal={proposal}
-        user={user}
-        vote={votes[proposal]}
-      />
-    ))
-  }
+  return PROPOSALS.map(proposal => (
+    <Proposal
+      key={proposal}
+      proposal={proposal}
+      user={user}
+      vote={votes[proposal]}
+    />
+  ))
 }
