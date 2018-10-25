@@ -1,38 +1,31 @@
 /* eslint-disable react/prop-types */
-
-import React, {Component} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Score} from '../components/Score'
 
-import {db} from '../firebase'
+import {onGetVotesByProposal} from '../firebase'
 
-export class Iframe extends Component {
-  state = {isReady: false, votes: []}
+export const Iframe = ({match}) => {
+  const [votes, setVotes] = useState([])
+  const [isReady, setIsReady] = useState(false)
+  const {params} = match
+  const {proposal} = params
 
-  componentDidMount() {
-    db.collection('votes')
-      .where('proposal', '==', this.props.match.params.proposal)
-      .onSnapshot(querySnapshot => {
-        let votes = []
-        if (querySnapshot.docs.length > 0) {
-          querySnapshot.forEach(function(doc) {
-            const {vote} = doc.data()
-            votes.push(vote)
-          })
-        }
-        console.log(votes)
-        this.setState({isReady: true, votes})
+  useEffect(
+    () => {
+      onGetVotesByProposal({proposal}, votes => {
+        setVotes(votes)
+        setIsReady(true)
       })
-  }
-  render() {
-    const {isReady} = this.state
+    },
+    [proposal]
+  )
 
-    return (
-      <div className="js-IframePage">
-        {!isReady && (
-          <h2 className="js-IframePage-loading">Loading scores... 🐭</h2>
-        )}
-        {isReady && <Score votes={this.state.votes} />}
-      </div>
-    )
-  }
+  return (
+    <div className="js-IframePage">
+      {!isReady && (
+        <h2 className="js-IframePage-loading">Loading scores... 🐭</h2>
+      )}
+      {isReady && <Score votes={votes} />}
+    </div>
+  )
 }
