@@ -1,0 +1,21 @@
+{
+  "name": "frontend-polls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "sui-bundler dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@s-ui/bundler": "3"
+  },
+  "dependencies": {
+    "@s-ui/react-atom-spinner": "1",
+    "@schibstedspain/sui-atom-badge": "1",
+    "@schibstedspain/sui-atom-button": "1",
+    "firebase": "5.5.5",
+    "react": "16",
+    "react-dom": "16",
+    "react-router-dom": "4.3.1"
+  }
+}

@@ -1,0 +1,100 @@
+@import './theme';
+@import './reset';
+
+@import '~@s-ui/react-atom-spinner/lib/index';
+@import '~@schibstedspain/sui-atom-badge/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
+.js- {
+  &Header {
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    font-size: $fz-m;
+    justify-content: center;
+    margin-bottom: $m-m;
+    padding: $p-m $p-s;
+    width: 100%;
+
+    &-title {
+      font-size: $fz-xxl;
+    }
+
+    &-subtitle {
+      display: block;
+      font-size: $fz-s;
+      font-weight: $fw-regular;
+    }
+  }
+
+  &IframePage {
+    display: flex;
+    justify-content: center;
+  }
+
+  &MonoText {
+    display: block;
+    font-family: monospace;
+    text-align: center;
+  }
+
+  &NotFoundPage {
+    margin: 0 auto;
+    max-width: 80%;
+    text-align: center;
+
+    &-image {
+      max-width: 100%;
+    }
+  }
+
+  &Proposal {
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    margin: 0 auto;
+    max-width: 300px;
+    padding-bottom: 16px;
+    text-align: center;
+  }
+
+  &Score {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    &-title {
+      align-items: center;
+      color: #555;
+      display: flex;
+      font-weight: 500;
+      justify-content: center;
+    }
+
+    &-value {
+      color: #333;
+      font-weight: bold;
+      font-size: 48px;
+      margin-left: 16px;
+    }
+  }
+
+  &Vote {
+    background: #fff;
+    border-radius: 50%;
+    border: 0;
+    font-size: 28px;
+    height: 40px;
+    line-height: 42px;
+    margin: 4px;
+    outline: 0;
+    text-indent: -1px;
+    transition: background .3s ease;
+    width: 40px;
+
+    &.is-active {
+      background: #09f;
+    }
+  }
+}
