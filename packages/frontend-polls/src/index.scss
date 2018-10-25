@@ -51,10 +51,14 @@
 
   &Proposal {
     border-bottom: 1px solid rgba(0, 0, 0, .05);
-    margin: 0 auto;
+    margin: 0 auto 16px;
     max-width: 300px;
-    padding-bottom: 16px;
+    padding-bottom: 32px;
     text-align: center;
+
+    &-title {
+      padding-bottom: 8px;
+    }
   }
 
   &Score {
