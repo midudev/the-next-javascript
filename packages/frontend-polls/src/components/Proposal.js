@@ -1,38 +1,25 @@
 /* eslint-disable react/prop-types */
 
-import React, {Component} from 'react'
+import React from 'react'
 import {Vote, VOTES} from './Vote'
-import {db} from '../firebase'
+import {setVote} from '../firebase'
 
-export class Proposal extends Component {
-  state = {
-    votes: {}
+export function Proposal({proposal, user, vote}) {
+  function _handleVote({vote}) {
+    return () => setVote({proposal, vote, user})
   }
 
-  _handleVote = ({vote}) => {
-    return () => {
-      const {proposal, user} = this.props
-      const votesPath = `${proposal}_${user}`
-
-      db.collection('votes')
-        .doc(votesPath)
-        .set({proposal, user, vote})
-    }
-  }
-
-  render() {
-    return (
-      <div className="js-Proposal">
-        <h3>{`proposal-${this.props.proposal}`}</h3>
-        {VOTES.map(vote => (
-          <Vote
-            isActive={this.props.vote === vote}
-            key={vote}
-            onVote={this._handleVote}
-            vote={vote}
-          />
-        ))}
-      </div>
-    )
-  }
+  return (
+    <div className="js-Proposal">
+      <h3>{`proposal-${proposal}`}</h3>
+      {VOTES.map(voteConstant => (
+        <Vote
+          isActive={vote === voteConstant}
+          key={voteConstant}
+          onVote={_handleVote}
+          vote={voteConstant}
+        />
+      ))}
+    </div>
+  )
 }
