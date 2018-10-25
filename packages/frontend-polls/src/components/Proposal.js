@@ -11,7 +11,7 @@ export function Proposal({proposal, user, vote}) {
 
   return (
     <div className="js-Proposal">
-      <h3>{`proposal-${proposal}`}</h3>
+      <h3 className="js-Proposal-title">{`proposal-${proposal}`}</h3>
       {VOTES.map(voteConstant => (
         <Vote
           isActive={vote === voteConstant}
