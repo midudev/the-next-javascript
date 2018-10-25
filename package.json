@@ -1,0 +1,24 @@
+{
+  "name": "so-whats-next-javascript",
+  "private": true,
+  "scripts": {
+    "test": "true"
+  },
+  "devDependencies": {
+    "@s-ui/deploy": "2",
+    "@s-ui/mono": "1",
+    "@s-ui/precommit": "2"
+  },
+  "config": {
+    "sui-mono": {}
+  },
+  "validate-commit-msg": {
+    "types": "@s-ui/mono/src/types"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "sasslintConfig": "./node_modules/@s-ui/lint/sass-lint.yml"
+}
